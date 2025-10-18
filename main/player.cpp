@@ -37,9 +37,10 @@ void Player::setName(string name) {
 
 string Player::getCamera(Animatronic* animatronic, int size) {
 
-	string info;
+	string info = "";
 
 	for (int i = 0; i < size; i++) {
+
 		info += animatronic[i].discriptPosition() + "\n";
 	}	
 

@@ -1,5 +1,5 @@
-#include "animatronic.h"
 #include "player.h"
+#include "initializer.h"
 
 //void camera_check(int index, int energy) {
 //
@@ -105,7 +105,8 @@
 //	return 0;
 //}
 
-int main() {
+
+void test01() {
 
 	Player player;
 	int size = 2;
@@ -114,6 +115,27 @@ int main() {
 	*(temp + 1) = Animatronic("DASDAS", 10, false);
 
 	cout << player.getCamera(temp, size) << endl;
+}
+
+void test02() {
+
+	Animatronic* s = new Animatronic[2];
+	Initializer in;
+	in.init(s, 2);
+
+	for (int i = 0; i < 2; i++) {
+
+		cout << s[i].getName() << endl << s[i].getPosition()
+			<< endl << s[i].getAttackPhase() << endl << endl;
+	}
+}
+
+
+int main() {
+	srand(time(0));
+
+	
+
 
 	system("pause");
 	return 0;
