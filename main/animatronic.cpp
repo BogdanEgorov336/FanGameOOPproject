@@ -7,7 +7,8 @@ Animatronic::Animatronic() {
 	attackPhase = false;
 }
 
-Animatronic::Animatronic(string name, int pos, bool phase) : name(name), position(pos), attackPhase(phase) {}
+Animatronic::Animatronic(string name, int pos, bool phase)
+	: name(name), position(pos), attackPhase(phase) {}
 
 Animatronic::~Animatronic() {}
 
@@ -35,7 +36,7 @@ void Animatronic::setPosition(int position) {
 }
 
 void Animatronic::setAttackPhase(bool attack_phase) {
-	this->attackPhase = attackPhase;
+	this->attackPhase = attack_phase;
 }
 
 string Animatronic::discriptPosition() {
@@ -59,4 +60,17 @@ string Animatronic::discriptPosition() {
 	}
 
 	return info;
+}
+
+void Animatronic::increasePosition() {
+
+	setPosition(getPosition() + rand() % 21);
+}
+
+void Animatronic::checkPhase() {
+
+	if (getPosition() >= 20) {
+
+		setAttackPhase(true);
+	}
 }

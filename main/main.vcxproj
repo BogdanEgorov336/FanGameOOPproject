@@ -124,14 +124,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animatronic.cpp" />
-    <ClCompile Include="initializer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animatronic.h" />
-    <ClInclude Include="initializer.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

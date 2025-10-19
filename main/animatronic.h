@@ -26,4 +26,6 @@ public:
 	void setAttackPhase(bool attack_phase);
 
 	string discriptPosition();
+	void increasePosition();
+	void checkPhase();
 };

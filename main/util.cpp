@@ -1,6 +1,6 @@
-#include "initializer.h"
+#include "util.h"
 
-void Initializer::init(Animatronic& animatronic) {
+void Util::init(Animatronic& animatronic) {
 
 	const int size = 28;
 
@@ -24,7 +24,7 @@ void Initializer::init(Animatronic& animatronic) {
 	animatronic.setAttackPhase(false);
 }
 
-void Initializer::init(Animatronic*& animatronic, int size) {
+void Util::init(Animatronic*& animatronic, int size) {
 
 	for (int i = 0; i < size; i++) {
 

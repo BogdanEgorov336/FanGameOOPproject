@@ -24,7 +24,7 @@
     <ClCompile Include="player.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="initializer.cpp">
+    <ClCompile Include="util.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClInclude Include="player.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="initializer.h">
+    <ClInclude Include="util.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

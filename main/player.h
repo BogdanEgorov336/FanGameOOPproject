@@ -23,5 +23,10 @@ public:
 	void setScore(int score);
 	void setName(string name);
 
-	string getCamera(Animatronic* animatronic, int size);
+	bool checkForAttack(Animatronic& animatronic);
+	bool checkForAttack(Animatronic*& animatronic, int size);
+	string getCamera(Animatronic*& animatronic, int size);
+	string getCamera(Animatronic& animatronic);
+	void closeTheDoor(Animatronic*& animatronic, int size, bool& flag);
+	void closeTheDoor(Animatronic& animatronic, bool& flag);
 };

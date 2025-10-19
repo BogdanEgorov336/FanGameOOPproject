@@ -1,7 +1,7 @@
 #pragma once
 #include "animatronic.h"
 
-class Initializer {
+class Util {
 
 public:
 
