@@ -6,5 +6,5 @@ class Util {
 public:
 
 	void init(Animatronic &animatronic);
-	void init(Animatronic* &animatronic, int size);
+	virtual void init(Animatronic* &animatronic, int size);
 };

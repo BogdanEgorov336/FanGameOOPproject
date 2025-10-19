@@ -25,8 +25,8 @@ public:
 
 	bool checkForAttack(Animatronic& animatronic);
 	bool checkForAttack(Animatronic*& animatronic, int size);
-	string getCamera(Animatronic*& animatronic, int size);
-	string getCamera(Animatronic& animatronic);
-	void closeTheDoor(Animatronic*& animatronic, int size, bool& flag);
-	void closeTheDoor(Animatronic& animatronic, bool& flag);
+	string getCamera(Animatronic*& animatronic, int size, int& energy);
+	string getCamera(Animatronic& animatronic, int& energy);
+	void closeTheDoor(Animatronic*& animatronic, int size, bool& flag, int& energy);
+	void closeTheDoor(Animatronic& animatronic, bool& flag, int& energy);
 };

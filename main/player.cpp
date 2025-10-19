@@ -35,7 +35,7 @@ void Player::setName(string name) {
 	this->name = name;
 }
 
-string Player::getCamera(Animatronic*& animatronic, int size) {
+string Player::getCamera(Animatronic*& animatronic, int size, int& energy) {
 
 	string info = "";
 
@@ -43,12 +43,14 @@ string Player::getCamera(Animatronic*& animatronic, int size) {
 
 		info += animatronic[i].discriptPosition() + "\n";
 	}
+	energy -= rand() % 3 + 2;
 
 	return info;
 }
 
-string Player::getCamera(Animatronic& animatronic) {
+string Player::getCamera(Animatronic& animatronic, int& energy) {
 
+	energy -= rand() % 3 + 2;
 	return animatronic.discriptPosition() + "\n";
 }
 
@@ -70,7 +72,7 @@ bool Player::checkForAttack(Animatronic*& animatronic, int size) {
 	return false;
 }
 
-void Player::closeTheDoor(Animatronic*& animatronic, int size, bool& flag) {
+void Player::closeTheDoor(Animatronic*& animatronic, int size, bool& flag, int& energy) {
 
 	for (int i = 0; i < size; i++) {
 
@@ -81,9 +83,11 @@ void Player::closeTheDoor(Animatronic*& animatronic, int size, bool& flag) {
 			flag = false;
 		}
 	}
+
+	energy -= rand() % 2 + 3;
 }
 
-void Player::closeTheDoor(Animatronic& animatronic, bool& flag) {
+void Player::closeTheDoor(Animatronic& animatronic, bool& flag, int& energy) {
 
 	if (animatronic.getAttackPhase()) {
 
@@ -91,4 +95,5 @@ void Player::closeTheDoor(Animatronic& animatronic, bool& flag) {
 		animatronic.setPosition(rand() % 10);
 		flag = false;
 	}
+	energy -= rand() % 2 + 3;
 }

@@ -67,6 +67,15 @@ void Animatronic::increasePosition() {
 	setPosition(getPosition() + rand() % 21);
 }
 
+void Animatronic::increasePosition(int a, int b) {
+
+	if (a > b) {
+		swap(a, b);
+	}
+
+	setPosition(getPosition() + rand() % (b - a) + a + 1);
+}
+
 void Animatronic::checkPhase() {
 
 	if (getPosition() >= 20) {

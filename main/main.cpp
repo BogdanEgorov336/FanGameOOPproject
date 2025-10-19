@@ -5,11 +5,12 @@ void test01() {
 
 	Player player;
 	int size = 2;
+	int energy = 100;
 	Animatronic* temp = new Animatronic[size];
 	*temp = Animatronic("ASD", 4, false);
 	*(temp + 1) = Animatronic("DASDAS", 10, false);
 
-	cout << player.getCamera(temp, size) << endl;
+	cout << player.getCamera(temp, size, energy) << endl;
 }
 
 void test02() {
@@ -32,11 +33,11 @@ void discript(Animatronic an) {
 }
 
 int main() {
-	srand(time(0));
+	srand(time(NULL));
 
 	Player player(100, 0, "Afton");
 
-	int size = 1;
+	int size = 2;
 	Animatronic* an = new Animatronic[size];
 
 	Util util;
@@ -44,32 +45,36 @@ int main() {
 
 	string game_massages[3]{ "You wait for a few minutes.\n",
 		"Silence around is so loud.\n",
-		"Clanking is heard somewhere." };
+		"Clanking is heard somewhere.\n" };
 	bool flag = false;
-	int temp;
+	int energy = 100;
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 10; i++) {
 
 		//choice
-		cout << "You're supposed to...\n[1]Check camera\n[2]Close the door\n[3]Do nothing\n>>";
+		cout << "[ " << energy
+			<< "% ] You're supposed to...\n[1]Check camera\n[2]Close the door\n[3]Do nothing\n>>";
+		int temp;
 		cin >> temp;
+		system("cls");
 
 		if (temp == 1) {
 
-			cout << player.getCamera(an, 1);
+			cout << player.getCamera(an, size, energy);
 		}
 		else if (temp == 2) {
 
 			cout << "You close the doors\n";
-			player.closeTheDoor(an, 1, flag);
+			player.closeTheDoor(an, size, flag, energy);
 		}
 		else {
 
 			cout << game_massages[rand() % 3];
+			energy -= rand() % 3;
 		}
 
 		//checking
-		if (flag) {
+		if (flag || energy < 0) {
 			cout << "You lost\n";
 			break;
 		}
@@ -80,10 +85,12 @@ int main() {
 
 		for (int i = 0; i < size; i++) {
 
-			an[i].increasePosition();
+			an[i].increasePosition(0, 5);
 			an[i].checkPhase();
 		}
 
+		system("pause");
+		system("cls");
 	}
 
 	delete[] an;

@@ -27,5 +27,6 @@ public:
 
 	string discriptPosition();
 	void increasePosition();
+	void increasePosition(int a, int b);
 	void checkPhase();
 };
