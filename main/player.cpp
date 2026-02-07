@@ -9,6 +9,8 @@ Player::Player() {
 
 Player::Player(int energy, int score, string name) : energy(energy), score(score), name(name) {};
 
+Player::Player(int score, string name) : energy(0), score(score), name(name) {};
+
 Player::~Player() {}
 
 int Player::getEnergy() {
@@ -43,14 +45,14 @@ string Player::getCamera(Animatronic*& animatronic, int size, int& energy) {
 
 		info += animatronic[i].discriptPosition() + "\n";
 	}
-	energy -= rand() % 3 + 2;
+	energy -= rand() % 3;
 
 	return info;
 }
 
 string Player::getCamera(Animatronic& animatronic, int& energy) {
 
-	energy -= rand() % 3 + 2;
+	energy -= rand() % 3;
 	return animatronic.discriptPosition() + "\n";
 }
 
@@ -72,7 +74,7 @@ bool Player::checkForAttack(Animatronic*& animatronic, int size) {
 	return false;
 }
 
-void Player::closeTheDoor(Animatronic*& animatronic, int size, bool& flag, int& energy) {
+void Player::closeTheDoor(Animatronic*& animatronic, int size, int& flag, int& energy) {
 
 	for (int i = 0; i < size; i++) {
 
@@ -80,20 +82,20 @@ void Player::closeTheDoor(Animatronic*& animatronic, int size, bool& flag, int& 
 
 			animatronic[i].setAttackPhase(false);
 			animatronic[i].setPosition(rand() % 10);
-			flag = false;
+			flag = 0;
 		}
 	}
 
-	energy -= rand() % 2 + 3;
+	energy -= rand() % 2 + 1;
 }
 
-void Player::closeTheDoor(Animatronic& animatronic, bool& flag, int& energy) {
+void Player::closeTheDoor(Animatronic& animatronic, int& flag, int& energy) {
 
 	if (animatronic.getAttackPhase()) {
 
 		animatronic.setAttackPhase(false);
 		animatronic.setPosition(rand() % 10);
-		flag = false;
+		flag = 0;
 	}
-	energy -= rand() % 2 + 3;
+	energy -= rand() % 2 + 1;
 }
